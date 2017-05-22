@@ -1,8 +1,8 @@
 <template>
-  <div class="clock">
-    <span>{{h}}</span>:
-    <span>{{m}}</span>:
-    <span>{{s}}</span>
+  <div class="clock" :class="className">
+    {{setTime(h)}}:
+    {{setTime(m)}}:
+    {{setTime(s)}}
   </div>
 </template>
 
@@ -16,6 +16,7 @@ export default {
       s: 0
     }
   },
+  props:['className'],
   mounted(){
     this.clock();
     setInterval(()=>{
@@ -23,6 +24,9 @@ export default {
     },1000);
   },
   methods:{
+   setTime(num){
+      return num < 10 ? ("0" + num) : num;
+    },
     clock(){
       var oDate = new Date();
       this.h = oDate.getHours();
@@ -35,8 +39,7 @@ export default {
 
 <style scoped>
 .clock{
-  width: 100px;
-  margin:20px auto;
-  font-size: 20px;
+  display: inline-block;
+  font-size: 14px;
 }
 </style>
