@@ -2,6 +2,10 @@
 
 > 此demo用于演示组件间的相互依赖。
 
+## 示例图
+![示例图](img/01.png)
+![示例图](img/02.png)
+
 ## Build Setup
 
 ``` bash
